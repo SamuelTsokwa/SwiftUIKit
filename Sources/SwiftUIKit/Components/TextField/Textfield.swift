@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CntrStyleSheet
 import UIKit
 import SwiftUI
 
@@ -21,7 +20,6 @@ public struct TextfieldWithoutBorder : UIViewRepresentable {
     public var isFirstResponder: Bool = false
     public var isSecureTextField: Bool
     public var textAlignment: NSTextAlignment
-    private let styleSheet: CntrStyleSheet = .cntrCustomer
         
     public init(text: Binding<String>, placeholder: String, keyboardType: UIKeyboardType = .default, isFirstResponder: Bool = false, isSecureTextField: Bool = false, textAlignment: NSTextAlignment = .left, textColor: UIColor = .black) {
         
