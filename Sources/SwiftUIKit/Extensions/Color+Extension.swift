@@ -35,3 +35,11 @@ public extension Color {
         )
     }
 }
+
+public extension UIColor {
+    @available(iOS 13.0, *)
+    var color: Color {
+        Color(self)
+    }
+}
+
