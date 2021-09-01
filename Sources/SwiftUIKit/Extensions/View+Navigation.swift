@@ -76,13 +76,13 @@ public extension View {
         return background(EmptyView().fullScreenCover(item: item, content: destination))
       }
     
-    func fullScreen<Content: View>(isPresented: Binding<Bool>, shouldTriggerLoadingView: Binding<Bool> = .constant(false), @ViewBuilder content: @escaping() -> Content) -> some View {
-        
-        return background(EmptyView().fullScreenCover(isPresented: isPresented, content: {
-            FullscreenHelperView(dismiss: isPresented, content: content)
-                .loadingView(isShowing: shouldTriggerLoadingView)
-        }))
-    }
+//    func fullScreen<Content: View>(isPresented: Binding<Bool>, shouldTriggerLoadingView: Binding<Bool> = .constant(false), @ViewBuilder content: @escaping() -> Content) -> some View {
+//        
+//        return background(EmptyView().fullScreenCover(isPresented: isPresented, content: {
+//            FullscreenHelperView(dismiss: isPresented, content: content)
+//                .loadingView(isShowing: shouldTriggerLoadingView)
+//        }))
+//    }
     
     func fullScreen<Content, Item>(item: Binding<Item?>, @ViewBuilder content: @escaping() -> Content)  -> some View where Content: View, Item: Identifiable {
         let isActive = Binding(

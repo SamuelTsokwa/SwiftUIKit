@@ -62,7 +62,7 @@ public struct TextfieldWithoutBorder : UIViewRepresentable {
     
     
     public func makeUIView(context: Context) -> CntrTextField {
-        let textfield = CntrUI.TextfieldWithoutBorder(frame: .zero, inActiveborderColor: .gray, activeBorderColor: styleSheet.colors.primary, selectedTextColor: textColor)
+        let textfield = CntrUI.TextfieldWithoutBorder(frame: .zero, inActiveborderColor: .gray, activeBorderColor: .blue, selectedTextColor: textColor)
         textfield.textColor = textColor
         textfield.isSecureTextEntry = isSecureTextField
         textfield.placeholder = placeholder
@@ -96,7 +96,6 @@ public struct TextfieldWithBorder : UIViewRepresentable {
     public var isFirstResponder: Bool = false
     public var isSecureTextField: Bool
     public var textAlignment: NSTextAlignment
-    private let styleSheet: CntrStyleSheet = .cntrCustomer
     
         
     public init(text: Binding<String>, placeholder: String, keyboardType: UIKeyboardType = .default, isFirstResponder: Bool = false, isSecureTextField: Bool = false, textAlignment: NSTextAlignment = .left, textColor: UIColor = .black) {
@@ -140,7 +139,7 @@ public struct TextfieldWithBorder : UIViewRepresentable {
         }
     
     public func makeUIView(context: Context) -> CntrTextField {
-        let textfield = CntrUI.TextfieldWithBorder(frame: .zero, withBorderColor: styleSheet.colors.primary, withBorderWidth: 2, withCornerRadius: 2)
+        let textfield = CntrUI.TextfieldWithBorder(frame: .zero, withBorderColor: .blue, withBorderWidth: 2, withCornerRadius: 2)
         textfield.textColor = textColor
         textfield.labelColor = textColor
         textfield.placeholder = placeholder
@@ -172,7 +171,6 @@ public struct SecureTextfieldWithoutBorder : UIViewRepresentable {
     public var keyboardType: UIKeyboardType
     public var isFirstResponder: Bool = false
     public var textAlignment: NSTextAlignment
-    private let styleSheet: CntrStyleSheet = .cntrCustomer
         
     public init(text: Binding<String>, placeholder: String, keyboardType: UIKeyboardType = .default, isFirstResponder: Bool = false, textAlignment: NSTextAlignment = .left, textColor: UIColor = .black) {
         
@@ -214,7 +212,7 @@ public struct SecureTextfieldWithoutBorder : UIViewRepresentable {
         }
     
     public func makeUIView(context: Context) -> CntrTextField {
-        let textfield = CntrUI.TextfieldWithoutBorder(frame: .zero, inActiveborderColor: .gray, activeBorderColor: styleSheet.colors.primary, selectedTextColor: textColor)
+        let textfield = CntrUI.TextfieldWithoutBorder(frame: .zero, inActiveborderColor: .gray, activeBorderColor: .blue, selectedTextColor: textColor)
         textfield.textColor = textColor
         textfield.labelColor = textColor
         textfield.placeholder = placeholder
@@ -248,7 +246,6 @@ public struct SecureTextfieldWithBorder : UIViewRepresentable {
     public var textColor: UIColor
     public var keyboardType: UIKeyboardType
     public var isFirstResponder: Bool = false
-    private let styleSheet: CntrStyleSheet = .cntrCustomer
     public var textAlignment: NSTextAlignment
         
     public init(text: Binding<String>, placeholder: String, keyboardType: UIKeyboardType = .default, isFirstResponder: Bool = false, textAlignment: NSTextAlignment = .left, textColor: UIColor = .black) {
@@ -291,7 +288,7 @@ public struct SecureTextfieldWithBorder : UIViewRepresentable {
         }
     
     public func makeUIView(context: Context) -> CntrTextField {
-        let textfield = CntrUI.TextfieldWithBorder(frame: .zero, withBorderColor: styleSheet.colors.primary, withBorderWidth: 2, withCornerRadius: 2)
+        let textfield = CntrUI.TextfieldWithBorder(frame: .zero, withBorderColor: .blue, withBorderWidth: 2, withCornerRadius: 2)
         textfield.textColor = textColor
         textfield.isSecureTextEntry = true
         textfield.placeholder = placeholder
