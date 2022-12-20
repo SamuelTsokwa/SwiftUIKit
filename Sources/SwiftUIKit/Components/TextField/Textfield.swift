@@ -154,6 +154,13 @@ public struct TextfieldWithBorder : UIViewRepresentable {
         textfield.autocapitalizationType = .none
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.textAlignment = textAlignment
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: textfield.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(textfield.clearButtonTapped(button:)))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(textfield.doneButtonTapped(button:)))
+        toolBar.items = [cancelButton, spacer, doneButton]
+        toolBar.setItems([cancelButton, spacer, doneButton], animated: true)
+        textfield.inputAccessoryView = toolBar
         return textfield
     }
     
@@ -231,6 +238,13 @@ public struct SecureTextfieldWithoutBorder : UIViewRepresentable {
         textfield.textAlignment = textAlignment
         textfield.autocapitalizationType = .none
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: textfield.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(textfield.clearButtonTapped(button:)))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(textfield.doneButtonTapped(button:)))
+        toolBar.items = [cancelButton, spacer, doneButton]
+        toolBar.setItems([cancelButton, spacer, doneButton], animated: true)
+        textfield.inputAccessoryView = toolBar
         return textfield
     }
     
@@ -309,6 +323,13 @@ public struct SecureTextfieldWithBorder : UIViewRepresentable {
         textfield.delegate = context.coordinator
         textfield.autocapitalizationType = .none
         textfield.translatesAutoresizingMaskIntoConstraints = false
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: textfield.frame.size.width, height: 44))
+        let cancelButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(textfield.clearButtonTapped(button:)))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(textfield.doneButtonTapped(button:)))
+        toolBar.items = [cancelButton, spacer, doneButton]
+        toolBar.setItems([cancelButton, spacer, doneButton], animated: true)
+        textfield.inputAccessoryView = toolBar
         return textfield
     }
     
@@ -362,3 +383,16 @@ extension UIColor {
         return nil
     }
 }
+
+extension UITextField {
+    @objc func doneButtonTapped(button:UIBarButtonItem) -> Void {
+        self.resignFirstResponder()
+    }
+
+    @objc func clearButtonTapped(button:UIBarButtonItem) -> Void {
+        withAnimation {
+            self.text = ""
+        }
+    }
+}
+
