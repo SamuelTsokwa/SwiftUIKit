@@ -53,7 +53,9 @@ public struct TextfieldWithoutBorder : UIViewRepresentable {
         public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
                     if let currentValue = textField.text as NSString? {
                         let proposedValue = currentValue.replacingCharacters(in: range, with: string)
-                        self.text.wrappedValue = proposedValue
+                        DispatchQueue.main.async {
+                            self.text.wrappedValue = proposedValue
+                        }
                     }
                     return true
                 }
@@ -130,7 +132,10 @@ public struct TextfieldWithBorder : UIViewRepresentable {
         public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
                     if let currentValue = textField.text as NSString? {
                         let proposedValue = currentValue.replacingCharacters(in: range, with: string)
-                        self.text.wrappedValue = proposedValue
+                        DispatchQueue.main.async {
+                            self.text.wrappedValue = proposedValue
+                        }
+                        
                     }
                     return true
                 }
@@ -203,7 +208,9 @@ public struct SecureTextfieldWithoutBorder : UIViewRepresentable {
         public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
                     if let currentValue = textField.text as NSString? {
                         let proposedValue = currentValue.replacingCharacters(in: range, with: string)
-                        self.text.wrappedValue = proposedValue
+                        DispatchQueue.main.async {
+                            self.text.wrappedValue = proposedValue
+                        }
                     }
                     return true
                 }
@@ -279,7 +286,9 @@ public struct SecureTextfieldWithBorder : UIViewRepresentable {
         public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
                     if let currentValue = textField.text as NSString? {
                         let proposedValue = currentValue.replacingCharacters(in: range, with: string)
-                        self.text.wrappedValue = proposedValue
+                        DispatchQueue.main.async {
+                            self.text.wrappedValue = proposedValue
+                        }
                     }
                     return true
                 }
